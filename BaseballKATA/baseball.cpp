@@ -20,7 +20,19 @@ public:
         if (guessNumber == question) {
             return { true, 3, 0 };
         }
-        return { false, 0 ,0 };
+        else {
+            int s = 0;
+            int b = 0;
+            for (int i = 0; i < 3; ++i) {
+                for (int j = 0; j < 3; ++j) {
+                    if (guessNumber[i] == question[j]) {
+                        if (i == j) s++;
+                        else b++;
+                    }
+                }
+            }
+            return { false, s ,b };
+        }
     }
 
     void assertIllegalArgument(const std::string& guessNumber)
